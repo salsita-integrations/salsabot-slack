@@ -7,8 +7,8 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/cihub/seelog",
-			"Comment": "go1.1-4-g6916c12",
-			"Rev": "6916c1271534ee68a12381356a0555075f6a6d76"
+			"Comment": "go1.1-24-g83d0dca",
+			"Rev": "83d0dcad636b63c066856045962befa246e00c79"
 		},
 		{
 			"ImportPath": "github.com/dmotylev/nutrition",
@@ -16,7 +16,7 @@
 		},
 		{
 			"ImportPath": "github.com/meeko-contrib/go-meeko-webhook-receiver/receiver",
-			"Rev": "1cc11e64c0d13a7a740bd7a08e011f4800ca7a51"
+			"Rev": "eff7f64bd81d3a1ebb62a27d4bc7a1c0ca6c53d4"
 		},
 		{
 			"ImportPath": "github.com/meeko/go-meeko/agent",
@@ -48,7 +48,7 @@
 		},
 		{
 			"ImportPath": "github.com/pebbe/zmq3",
-			"Rev": "864ffc49d2e319fbaec3d0b3290b34241c1653b1"
+			"Rev": "4ede17375fb938a3a59ba9a7a5f7ef73688d9b13"
 		},
 		{
 			"ImportPath": "github.com/tchap/go-patricia/patricia",

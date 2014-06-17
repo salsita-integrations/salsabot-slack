@@ -25,6 +25,7 @@
 package seelog
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 	"time"
@@ -163,7 +164,7 @@ func TestDateFormat(t *testing.T) {
 	}
 }
 
-func TestDateParametrizedFormat(t *testing.T) {
+func TestDateParameterizedFormat(t *testing.T) {
 	testFormat := "Mon Jan 02 2006 15:04:05"
 	preciseForamt := "Mon Jan 02 2006 15:04:05.000"
 
@@ -184,5 +185,47 @@ func TestDateParametrizedFormat(t *testing.T) {
 
 	if !strings.HasPrefix(msg, dateBefore) && !strings.HasPrefix(msg, dateAfter) {
 		t.Errorf("Incorrect message: %v. Expected %v or %v", msg, dateBefore, dateAfter)
+	}
+}
+
+func createTestFormatter(format string) FormatterFunc {
+	return func(message string, level LogLevel, context LogContextInterface) interface{} {
+		return "TEST " + context.Func() + " TEST"
+	}
+}
+
+func TestCustomFormatterRegistration(t *testing.T) {
+	err := RegisterCustomFormatter("Level", createTestFormatter)
+	if err == nil {
+		t.Errorf("Expected an error when trying to register a custom formatter with a reserved alias")
+	}
+	err = RegisterCustomFormatter("EscM", createTestFormatter)
+	if err == nil {
+		t.Errorf("Expected an error when trying to register a custom formatter with a reserved parameterized alias")
+	}
+	err = RegisterCustomFormatter("TEST", createTestFormatter)
+	if err != nil {
+		t.Fatalf("Registering custom formatter: unexpected error: %s", err)
+	}
+	err = RegisterCustomFormatter("TEST", createTestFormatter)
+	if err == nil {
+		t.Errorf("Expected an error when trying to register a custom formatter with duplicate name")
+	}
+
+	context, conErr := currentContext()
+	if conErr != nil {
+		t.Fatal("Cannot get current context:" + conErr.Error())
+		return
+	}
+
+	form, err := newFormatter("%Msg %TEST 123")
+	if err != nil {
+		t.Fatalf("%s\n", err.Error())
+	}
+
+	expected := fmt.Sprintf("test TEST %sTestCustomFormatterRegistration TEST 123", commonPrefix)
+	msg := form.Format("test", DebugLvl, context)
+	if msg != expected {
+		t.Fatalf("Custom formatter: invalid output. Expected: '%s'. Got: '%s'", expected, msg)
 	}
 }
