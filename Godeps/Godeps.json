@@ -1,0 +1,63 @@
+{
+	"ImportPath": "github.com/salsita-integrations/salsabot-slack",
+	"GoVersion": "go1.3rc2",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/cihub/seelog",
+			"Comment": "go1.1-4-g6916c12",
+			"Rev": "6916c1271534ee68a12381356a0555075f6a6d76"
+		},
+		{
+			"ImportPath": "github.com/dmotylev/nutrition",
+			"Rev": "9a305a8ca773d89a1770aebc82efc6e1c7bbd4ea"
+		},
+		{
+			"ImportPath": "github.com/meeko-contrib/go-meeko-webhook-receiver/receiver",
+			"Rev": "1cc11e64c0d13a7a740bd7a08e011f4800ca7a51"
+		},
+		{
+			"ImportPath": "github.com/meeko/go-meeko/agent",
+			"Rev": "537b6f5c309580c9971091d36ee0bbc6cbb416cf"
+		},
+		{
+			"ImportPath": "github.com/meeko/go-meeko/meeko/services",
+			"Rev": "537b6f5c309580c9971091d36ee0bbc6cbb416cf"
+		},
+		{
+			"ImportPath": "github.com/meeko/go-meeko/meeko/transports/zmq3/logging",
+			"Rev": "537b6f5c309580c9971091d36ee0bbc6cbb416cf"
+		},
+		{
+			"ImportPath": "github.com/meeko/go-meeko/meeko/transports/zmq3/loop",
+			"Rev": "537b6f5c309580c9971091d36ee0bbc6cbb416cf"
+		},
+		{
+			"ImportPath": "github.com/meeko/go-meeko/meeko/transports/zmq3/pubsub",
+			"Rev": "537b6f5c309580c9971091d36ee0bbc6cbb416cf"
+		},
+		{
+			"ImportPath": "github.com/meeko/go-meeko/meeko/transports/zmq3/rpc",
+			"Rev": "537b6f5c309580c9971091d36ee0bbc6cbb416cf"
+		},
+		{
+			"ImportPath": "github.com/meeko/go-meeko/meeko/utils/codecs",
+			"Rev": "537b6f5c309580c9971091d36ee0bbc6cbb416cf"
+		},
+		{
+			"ImportPath": "github.com/pebbe/zmq3",
+			"Rev": "864ffc49d2e319fbaec3d0b3290b34241c1653b1"
+		},
+		{
+			"ImportPath": "github.com/tchap/go-patricia/patricia",
+			"Comment": "v1.0.0-4-gaf30781",
+			"Rev": "af307814d2e14f7f50e44da46b89309341a60638"
+		},
+		{
+			"ImportPath": "github.com/ugorji/go/codec",
+			"Rev": "71c2886f5a673a35f909803f38ece5810165097b"
+		}
+	]
+}
