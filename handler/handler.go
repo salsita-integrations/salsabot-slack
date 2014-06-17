@@ -24,5 +24,14 @@ func New(logger Logger) http.Handler {
 
 func (handler *webhookHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	handler.log.Info("Webhook received")
-	io.WriteString(w, `{"text": "Yes, my Lord?"}`)
+
+	var msg string
+	switch r.FormValue("text")[10:] {
+	case "Agreed?":
+		msg = "Of course, my Lord!"
+	default:
+		msg = "Yes, my Lord?"
+	}
+
+	io.WriteString(w, fmt.Sprintf("{\"text\": \"%v\"}", msg))
 }
