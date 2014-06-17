@@ -6,6 +6,7 @@
 package server
 
 import "net/http"
+import "github.com/meeko/go-meeko/agent"
 
 // AuthenticatedServer turns a regular http.Handler into a handler that returns
 // Unauthorized in case the token query parameter is not set correctly.
@@ -16,6 +17,8 @@ func AuthenticatedServer(token string, handler http.Handler) http.Handler {
 			http.Error(w, "POST Method Expected", http.StatusMethodNotAllowed)
 			return
 		}
+
+		agent.Logging().Info(r.URL)
 
 		// Make sure that the token query parameter is set correctly.
 		if r.FormValue("token") != token {
