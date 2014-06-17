@@ -1,0 +1,15 @@
+{
+  "name": "salsabot-slack",
+  "version": "0.0.1",
+  "description": "Salsabot's Slack alter ego",
+  "clone_dir": "github.com/salsita-integrations/salsabot-slack",
+  "variables": {
+    "LISTEN_ADDRESS": {
+      "usage": "TCP network address to listen on; format [HOST]:PORT"
+    },
+    "ACCESS_TOKEN": {
+      "usage": "token to be used for GitHub hooks authentication",
+      "secret": true
+    }
+  }
+}
