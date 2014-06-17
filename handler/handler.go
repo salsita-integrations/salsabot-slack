@@ -28,7 +28,7 @@ func (handler *webhookHandler) ServeHTTP(w http.ResponseWriter, r *http.Request)
 
 	var msg string
 	switch r.FormValue("text")[10:] {
-	case "Agreed?":
+	case "Agree?":
 		msg = "Of course, my Lord!"
 	default:
 		msg = "Yes, my Lord?"
