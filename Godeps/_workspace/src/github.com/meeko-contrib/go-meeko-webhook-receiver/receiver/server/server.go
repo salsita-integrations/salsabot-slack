@@ -19,6 +19,7 @@ func AuthenticatedServer(token string, handler http.Handler) http.Handler {
 		}
 
 		agent.Logging().Info(r.URL)
+		agent.Logging().Info(r.FormValue("token"))
 
 		// Make sure that the token query parameter is set correctly.
 		if r.FormValue("token") != token {
